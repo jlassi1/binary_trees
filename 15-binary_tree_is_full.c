@@ -7,38 +7,11 @@
  */
 int binary_tree_is_full(const binary_tree_t *tree)
 {
-int nr = 0, nf = 0;
-
-if (!tree)
-return (0);
-if (!tree->right && !tree->left)
-return (1);
-
-const binary_tree_t *tmp;
-tmp = tree;
-
-while (tmp->left)
-{
-nf++;
-if (!tmp->right && tmp->left)
-return (0);
-if (!tmp->left && tmp->right)
-return (0);
-tmp = tmp->left;
-}
-tmp = tree;
-while (tmp->right)
-{
-nr++;
-if (!tmp->right && tmp->left)
-return (0);
-if (!tmp->left && tmp->right)
-return (0);
-tmp = tmp->right;
-}
-if (nr == nf)
-return (1);
-
-return (0);
-
+	if (!tree)
+		return (0);
+	if (!tree->left && !tree->right)
+		return (1);
+	if ((tree->left) && (tree->right))
+		return (binary_tree_is_full(tree->left) && binary_tree_is_full(tree->right));
+	return (0);
 }
