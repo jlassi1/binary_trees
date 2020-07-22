@@ -15,17 +15,12 @@ return (NULL);
 
 tmp = node->parent->parent;
 
-if (tmp->right->right == node)
+if (tmp->right == node->parent)
 return (node->parent->parent->left);
 
-if (tmp->right->left == node)
-return (node->parent->parent->left);
-
-if (tmp->left->left == node)
+if (tmp->left == node->parent)
 return (node->parent->parent->right);
 
-if (tmp->left->right == node)
-return (node->parent->parent->right);
 
 return (NULL);
 }
