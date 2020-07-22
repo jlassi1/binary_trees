@@ -23,7 +23,7 @@ return (NULL);
 r->parent = parent;
 r->n = value;
 r->right = NULL;
-r->right = NULL;
+r->left = NULL;
 
 
 if (parent->right == NULL)
