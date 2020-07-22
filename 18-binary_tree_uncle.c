@@ -27,6 +27,5 @@ return (node->parent->parent->right);
 if (tmp->left->right == node)
 return (node->parent->parent->right);
 
-else
-return(NULL);
+return (NULL);
 }
