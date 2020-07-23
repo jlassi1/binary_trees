@@ -34,23 +34,26 @@ return (NULL);
 binary_tree_t *binary_trees_ancestor(const binary_tree_t *first,
 					const binary_tree_t *second)
 {
+const binary_tree_t *f, *s;
+
 	if (!first || !second)
 		return (NULL);
+
+	f = first;
 	if (second == first)
 		return ((binary_tree_t *)first);
-	if (second->parent == first)
-		return ((binary_tree_t *)first);
-	if (first->parent == second)
-		return ((binary_tree_t *)second);
-	if (first->parent == second->parent)
-		return ((binary_tree_t *)first->parent);
-	if ((binary_tree_t *)first == binary_tree_uncle((binary_tree_t *)second))
-		return ((binary_tree_t *)first);
-	if ((binary_tree_t *)second == binary_tree_uncle((binary_tree_t *)first))
-		return ((binary_tree_t *)second);
-    if (first->parent->parent == second->parent->parent)
-        return((binary_tree_t *)second->parent->parent);
 
+	while (f)
+	{
+		s = second;
+		while (s)
+		{
+			if (s == f)
+				return ((binary_tree_t *)f);
+			s = s->parent;
+		}
+		f = f->parent;
+	}
 	return (NULL);
 
 }
