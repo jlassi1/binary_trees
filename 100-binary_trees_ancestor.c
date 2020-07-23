@@ -32,22 +32,22 @@ return (NULL);
  *Return: a pointer to the lowest common ancestor node of the two given nodes
  */
 binary_tree_t *binary_trees_ancestor(const binary_tree_t *first,
-const binary_tree_t *second)
+					const binary_tree_t *second)
 {
-    if (!first || !second)
+	if (!first || !second)
 		return (NULL);
 	if (second == first)
 		return ((binary_tree_t *)first);
-	else if (second->parent == first)
+	if (second->parent == first)
 		return ((binary_tree_t *)first);
-	else if (first->parent == second)
+	if (first->parent == second)
 		return ((binary_tree_t *)second);
-	else if (first->parent == second->parent)
+	if (first->parent == second->parent)
 		return ((binary_tree_t *)first->parent);
-	else if ((binary_tree_t *)first == binary_tree_uncle((binary_tree_t *)second))
-		return ((binary_tree_t *)first->parent);
-	else if ((binary_tree_t *)second == binary_tree_uncle((binary_tree_t *)first))
-		return ((binary_tree_t *)second->parent);
+	if ((binary_tree_t *)first == binary_tree_uncle((binary_tree_t *)second))
+		return ((binary_tree_t *)first);
+	if ((binary_tree_t *)second == binary_tree_uncle((binary_tree_t *)first))
+		return ((binary_tree_t *)second);
 
 	return (NULL);
 
