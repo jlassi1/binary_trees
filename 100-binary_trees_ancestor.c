@@ -36,16 +36,16 @@ const binary_tree_t *second)
 {
 	if (second == first)
 		return ((binary_tree_t *)first);
-	if (second->parent == first)
+	else if (second->parent == first)
 		return ((binary_tree_t *)first);
-	if (first->parent == second)
+	else if (first->parent == second)
 		return ((binary_tree_t *)second);
-	if (first->parent == second->parent)
+	else if (first->parent == second->parent)
 		return ((binary_tree_t *)first->parent);
 	if ((binary_tree_t *)first == binary_tree_uncle((binary_tree_t *)second))
-		return ((binary_tree_t *)first);
+		return ((binary_tree_t *)first->parent);
 	if ((binary_tree_t *)second == binary_tree_uncle((binary_tree_t *)first))
-		return ((binary_tree_t *)second);
+		return ((binary_tree_t *)second->parent);
 
 	return (NULL);
 
