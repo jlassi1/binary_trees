@@ -17,7 +17,6 @@ size_t nr = 0, nf = 0;
 	else
 		return (nr);
 }
-
 /**
  *binary_tree_balance- measures the balance factor of a binary tree
  *
